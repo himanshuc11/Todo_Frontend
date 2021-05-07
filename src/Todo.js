@@ -6,19 +6,25 @@ class Todo extends Component {
     super(props);
 
     this.del = this.del.bind(this);
+    this.update = this.update.bind(this);
   }
 
   del() {
     this.props.delete(this.props.todo);
   }
 
+  update() {
+    this.props.handleUpdate(this.props.todo);
+  }
+
   render() {
+    console.log(this.props);
     return (
       <div className="todo-item">
         <p>{this.props.todo.task_description}</p>
         <div className="todo-images">
           <img src="trash.png" alt="Trash" onClick={this.del} />
-          <img src="check.png" alt="Check" />
+          <img src="check.png" alt="Check" onClick={this.update} />
         </div>
       </div>
     );

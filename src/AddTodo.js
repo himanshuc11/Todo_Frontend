@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import "./AddTodo.css";
 
 class AddTodo extends Component {
   constructor(props) {
@@ -42,7 +43,10 @@ class AddTodo extends Component {
           onChange={this.handleChange}
           value={this.state.todo}
         />
-        <button onClick={this.handleSubmit}>Add</button>
+        &nbsp;
+        <button onClick={this.handleSubmit} className="add-button">
+          +
+        </button>
       </form>
     );
   }
