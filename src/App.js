@@ -96,6 +96,8 @@ class App extends Component {
       headers: { "Content-type": "application/json; charset=UTF-8" },
     }).catch((err) => alert(err));
 
+    console.log(todos);
+
     this.setState({ todos: todos });
   }
 

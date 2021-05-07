@@ -12,13 +12,14 @@ class AddTodo extends Component {
   }
 
   handleSelectChange(evt) {
-    this.setState({ selected: evt.target.value });
-    this.props.showTodos(evt.target.value);
+    console.log(evt.target);
+    this.setState({ selected: evt.target.value }, () =>
+      this.props.showTodos(this.state.selected)
+    );
   }
 
   handleChange(evt) {
     this.setState({ todo: evt.target.value });
-    this.props.showTodos(evt.target.value);
   }
 
   handleSubmit(evt) {
