@@ -31,7 +31,7 @@ class AddTodo extends Component {
     };
 
     if (this.state.todo !== "") {
-      fetch("http://127.0.0.1:8000/", {
+      fetch("https://fullstacktodoapi.herokuapp.com/", {
         method: "POST",
         body: JSON.stringify(req),
         headers: { "Content-type": "application/json; charset=UTF-8" },

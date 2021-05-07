@@ -54,7 +54,7 @@ class App extends Component {
   }
 
   getTodos() {
-    const url = `http://127.0.0.1:8000/${this.state.user.uid}`;
+    const url = `https://fullstacktodoapi.herokuapp.com/${this.state.user.uid}`;
     fetch(url)
       .then((response) => response.json())
       .then((data) => {
@@ -89,7 +89,7 @@ class App extends Component {
       return todo;
     });
 
-    const url = `http://127.0.0.1:8000/${toUpdateTodo.uid}/${toUpdateTodo.id}/`;
+    const url = `https://fullstacktodoapi.herokuapp.com/${toUpdateTodo.uid}/${toUpdateTodo.id}/`;
     fetch(url, {
       method: "PATCH",
       body: JSON.stringify(todo),
@@ -107,7 +107,7 @@ class App extends Component {
       return true;
     });
 
-    const url = `http://127.0.0.1:8000/${toDeleteTodo.uid}/${toDeleteTodo.id}`;
+    const url = `https://fullstacktodoapi.herokuapp.com/${toDeleteTodo.uid}/${toDeleteTodo.id}`;
     fetch(url, {
       method: "DELETE",
       body: JSON.stringify(toDeleteTodo),
