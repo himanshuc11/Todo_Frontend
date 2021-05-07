@@ -22,6 +22,7 @@ class App extends Component {
     this.getTodos = this.getTodos.bind(this);
     this.handleDelete = this.handleDelete.bind(this);
     this.handleUpdate = this.handleUpdate.bind(this);
+    this.handleAdd = this.handleAdd.bind(this);
   }
 
   getTodos() {
@@ -31,6 +32,10 @@ class App extends Component {
       .then((data) => {
         this.setState({ todos: data });
       });
+  }
+
+  handleAdd(todo) {
+    this.getTodos();
   }
 
   componentDidMount() {
@@ -87,7 +92,7 @@ class App extends Component {
   render() {
     return (
       <div>
-        <Navbar />
+        <Navbar user={this.state.user} />
         <Switch>
           <Route
             exact
@@ -98,6 +103,7 @@ class App extends Component {
                 todos={this.state.todos}
                 handleDelete={this.handleDelete}
                 handleUpdate={this.handleUpdate}
+                handleAdd={this.handleAdd}
               />
             )}
           ></Route>

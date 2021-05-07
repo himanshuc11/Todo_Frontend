@@ -29,8 +29,9 @@ class AddTodo extends Component {
         body: JSON.stringify(req),
         headers: { "Content-type": "application/json; charset=UTF-8" },
       })
-        .then((response) => console.log(response))
-        .then(() => this.setState({ todo: "" }));
+        .then(() => this.setState({ todo: "" }))
+        .then(() => this.props.handleAdd())
+        .catch((err) => alert(err));
     }
   }
 

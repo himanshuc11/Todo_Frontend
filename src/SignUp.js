@@ -3,11 +3,13 @@ import firebase from "./Authentication";
 import "firebase/auth";
 import "./SignUp.css";
 
+import { Redirect } from "react-router-dom";
+
 class SignUp extends Component {
   constructor(props) {
     super(props);
 
-    this.state = {};
+    this.state = { logged: false };
     this.gmailLogin = this.gmailLogin.bind(this);
     this.facebookLogin = this.facebookLogin.bind(this);
     this.gitHubLogin = this.gitHubLogin.bind(this);
@@ -19,13 +21,12 @@ class SignUp extends Component {
       .auth()
       .signInWithPopup(provider)
       .then((result) => {
-        var user = result.user;
-        console.log(user);
+        this.setState({ logged: true });
       })
       .catch((error) => {
         var errorCode = error.code;
         var errorMessage = error.message;
-        console.log(errorCode, errorMessage);
+        alert(errorMessage);
       });
   }
 
@@ -35,13 +36,12 @@ class SignUp extends Component {
       .auth()
       .signInWithPopup(provider)
       .then((result) => {
-        var user = result.user;
-        console.log(user);
+        this.setState({ logged: true });
       })
       .catch((error) => {
         var errorCode = error.code;
         var errorMessage = error.message;
-        console.log(errorCode, errorMessage);
+        alert(errorMessage);
       });
   }
 
@@ -51,33 +51,39 @@ class SignUp extends Component {
       .auth()
       .signInWithPopup(provider)
       .then((result) => {
-        var user = result.user;
-        console.log(user);
+        this.setState({ logged: true });
       })
       .catch((error) => {
         var errorCode = error.code;
         var errorMessage = error.message;
-        console.log(errorMessage, errorCode);
+        alert(errorMessage);
       });
   }
 
   render() {
-    return (
-      <div className="flex-container">
-        <button className="flex-item zocial gmail" onClick={this.gmailLogin}>
-          Gmail
-        </button>
-        <button
-          className="flex-item zocial facebook"
-          onClick={this.facebookLogin}
-        >
-          Facebook
-        </button>
-        <button className="flex-item zocial github" onClick={this.gitHubLogin}>
-          Github
-        </button>
-      </div>
-    );
+    if (this.state.logged) {
+      return <Redirect exact to="/" />;
+    } else {
+      return (
+        <div className="flex-container">
+          <button className="flex-item zocial gmail" onClick={this.gmailLogin}>
+            Gmail
+          </button>
+          <button
+            className="flex-item zocial facebook"
+            onClick={this.facebookLogin}
+          >
+            Facebook
+          </button>
+          <button
+            className="flex-item zocial github"
+            onClick={this.gitHubLogin}
+          >
+            Github
+          </button>
+        </div>
+      );
+    }
   }
 }
 

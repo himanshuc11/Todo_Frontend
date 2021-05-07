@@ -21,7 +21,9 @@ class Todo extends Component {
     console.log(this.props);
     return (
       <div className="todo-item">
-        <p>{this.props.todo.task_description}</p>
+        <p style={{ overflowWrap: "break-word", wordBreak: "break-word" }}>
+          {this.props.todo.task_description}
+        </p>
         <div className="todo-images">
           <img src="trash.png" alt="Trash" onClick={this.del} />
           <img src="check.png" alt="Check" onClick={this.update} />

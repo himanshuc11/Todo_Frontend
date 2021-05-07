@@ -2,7 +2,19 @@
   display: flex;
   flex-direction: column;
   height: 80vh;
-  background-color: rosybrown;
+  background-color: darksalmon;
   justify-content: center;
   align-items: center;
+}
+
+.todo-container {
+  width: 50vw;
+  height: 50vh;
+  background-color: #ffebed;
+  overflow-y: scroll;
+  overflow-wrap: break-word;
+}
+
+.todo-container h1 {
+  text-align: center;
 }

@@ -1,3 +1,9 @@
+form {
+  display: flex;
+  justify-content: space-between;
+  margin: 10px;
+}
+
 input {
   font-size: 16px;
   font-size: max(16px, 1em);
@@ -6,12 +12,14 @@ input {
   background-color: #fff;
   border: 2px solid;
   border-radius: 4px;
+  width: 75%;
 }
 
 .add-button {
-  border-radius: 50%;
-  width: 30px;
-  height: 30px;
+  margin-right: 20px;
+  border-radius: 25%;
+  width: 50px;
+  height: 50px;
   color: aqua;
   background-color: black;
 }

@@ -26,10 +26,17 @@ class TodoList extends Component {
     if (this.props.user) {
       return (
         <div className="main-container">
-          <h1>{this.props.user.displayName.split(" ")[0] + `'s Todo List`}</h1>
-          <hr />
-          <AddTodo uid={this.props.user.uid} />
-          {this.renderTodos()}
+          <div className="todo-container">
+            <h1>
+              {this.props.user.displayName.split(" ")[0] + `'s Todo List`}
+            </h1>
+            <hr />
+            <AddTodo
+              uid={this.props.user.uid}
+              handleAdd={this.props.handleAdd}
+            />
+            {this.renderTodos()}
+          </div>
         </div>
       );
     } else {

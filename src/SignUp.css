@@ -5,11 +5,11 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  background-color: rebeccapurple;
+  background-color: darksalmon;
 }
 
 .flex-item {
-  background-color: red;
+  background-color: darksalmon;
   padding: 10px;
   margin: 10px;
   min-width: 250px;
