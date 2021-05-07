@@ -1,10 +1,12 @@
 form {
   display: flex;
-  justify-content: space-between;
-  margin: 10px;
+  justify-content: space-around;
+  margin-bottom: 10px;
+  margin-top: 10px;
 }
 
 input {
+  text-align: center;
   font-size: 16px;
   font-size: max(16px, 1em);
   font-family: inherit;
@@ -12,7 +14,7 @@ input {
   background-color: #fff;
   border: 2px solid;
   border-radius: 4px;
-  width: 75%;
+  width: 60%;
 }
 
 .add-button {
@@ -22,4 +24,32 @@ input {
   height: 50px;
   color: aqua;
   background-color: black;
+}
+
+@media screen and (max-width: 520px) {
+  form {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+  }
+  input {
+    margin: 0px;
+    width: 80%;
+    display: block;
+    margin-bottom: 10px;
+  }
+  select {
+    width: 80%;
+    margin-bottom: 10px;
+    display: block;
+  }
+  .add-button {
+    display: block;
+    border-radius: 0%;
+    margin: 0px;
+    margin-bottom: 10px;
+    width: 80%;
+    height: 20px;
+  }
 }

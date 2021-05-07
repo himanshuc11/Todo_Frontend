@@ -34,6 +34,7 @@ class TodoList extends Component {
             <AddTodo
               uid={this.props.user.uid}
               handleAdd={this.props.handleAdd}
+              showTodos={this.props.showTodos}
             />
             {this.renderTodos()}
           </div>

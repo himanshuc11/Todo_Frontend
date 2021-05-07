@@ -18,18 +18,33 @@ class Todo extends Component {
   }
 
   render() {
-    console.log(this.props);
-    return (
-      <div className="todo-item">
-        <p style={{ overflowWrap: "break-word", wordBreak: "break-word" }}>
-          {this.props.todo.task_description}
-        </p>
-        <div className="todo-images">
-          <img src="trash.png" alt="Trash" onClick={this.del} />
-          <img src="check.png" alt="Check" onClick={this.update} />
+    if (!this.props.todo.is_completed) {
+      return (
+        <div className="todo-item">
+          <p style={{ overflowWrap: "break-word", wordBreak: "break-word" }}>
+            {this.props.todo.task_description}
+          </p>
+          <div className="todo-images">
+            <img src="trash.png" alt="Trash" onClick={this.del} />
+            <img src="check.png" alt="Check" onClick={this.update} />
+          </div>
         </div>
-      </div>
-    );
+      );
+    } else {
+      return (
+        <div className="todo-item">
+          <strike
+            style={{ overflowWrap: "break-word", wordBreak: "break-word" }}
+          >
+            {this.props.todo.task_description}
+          </strike>
+          <div className="todo-images">
+            <img src="trash.png" alt="Trash" onClick={this.del} />
+            <img src="check.png" alt="Check" onClick={this.update} />
+          </div>
+        </div>
+      );
+    }
   }
 }
 

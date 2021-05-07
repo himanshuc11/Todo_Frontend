@@ -18,3 +18,27 @@
 .todo-container h1 {
   text-align: center;
 }
+
+@media screen and (max-width: 720px) {
+  .todo-container {
+    width: 60vw;
+    height: 60vh;
+    background-color: #ffebed;
+    overflow-y: scroll;
+    overflow-wrap: break-word;
+  }
+}
+
+@media screen and (max-width: 520px) {
+  .main-container {
+    height: 80vh;
+    width: 100vw;
+  }
+  .todo-container {
+    width: 100vw;
+    height: 80vh;
+    background-color: #ffebed;
+    overflow-y: scroll;
+    overflow-wrap: break-word;
+  }
+}

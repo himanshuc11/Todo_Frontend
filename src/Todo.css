@@ -12,6 +12,10 @@
   padding-left: 10px;
 }
 
+.todo-item strike {
+  padding-left: 10px;
+}
+
 .todo-images {
   display: flex;
   justify-self: flex-end;

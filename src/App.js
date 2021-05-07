@@ -17,12 +17,40 @@ class App extends Component {
     this.state = {
       user: null,
       todos: [],
+      option: "all",
     };
 
     this.getTodos = this.getTodos.bind(this);
     this.handleDelete = this.handleDelete.bind(this);
     this.handleUpdate = this.handleUpdate.bind(this);
     this.handleAdd = this.handleAdd.bind(this);
+    this.showTodos = this.showTodos.bind(this);
+    this.renderTodos = this.renderTodos.bind(this);
+  }
+
+  renderTodos() {
+    let option = this.state.option;
+    if (option === "all") {
+      return this.state.todos;
+    } else if (option === "complete") {
+      return this.state.todos.filter((todo) => {
+        if (todo.is_completed) {
+          return true;
+        }
+        return false;
+      });
+    } else {
+      return this.state.todos.filter((todo) => {
+        if (todo.is_completed) {
+          return false;
+        }
+        return true;
+      });
+    }
+  }
+
+  showTodos(option) {
+    this.setState({ option: option });
   }
 
   getTodos() {
@@ -66,7 +94,7 @@ class App extends Component {
       method: "PATCH",
       body: JSON.stringify(todo),
       headers: { "Content-type": "application/json; charset=UTF-8" },
-    }).then((response) => console.log(response));
+    }).catch((err) => alert(err));
 
     this.setState({ todos: todos });
   }
@@ -84,7 +112,7 @@ class App extends Component {
       method: "DELETE",
       body: JSON.stringify(toDeleteTodo),
       headers: { "Content-type": "application/json; charset=UTF-8" },
-    }).then((response) => console.log(response));
+    }).catch((err) => alert(err));
 
     this.setState({ todos: todos });
   }
@@ -100,10 +128,12 @@ class App extends Component {
             render={() => (
               <TodoList
                 user={this.state.user}
-                todos={this.state.todos}
+                //todos={this.state.todos}
+                todos={this.renderTodos()}
                 handleDelete={this.handleDelete}
                 handleUpdate={this.handleUpdate}
                 handleAdd={this.handleAdd}
+                showTodos={this.showTodos}
               />
             )}
           ></Route>

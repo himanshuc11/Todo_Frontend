@@ -5,13 +5,20 @@ class AddTodo extends Component {
   constructor(props) {
     super(props);
 
-    this.state = { todo: "" };
+    this.state = { todo: "", selected: "all" };
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
+    this.handleSelectChange = this.handleSelectChange.bind(this);
+  }
+
+  handleSelectChange(evt) {
+    this.setState({ selected: evt.target.value });
+    this.props.showTodos(evt.target.value);
   }
 
   handleChange(evt) {
     this.setState({ todo: evt.target.value });
+    this.props.showTodos(evt.target.value);
   }
 
   handleSubmit(evt) {
@@ -38,6 +45,16 @@ class AddTodo extends Component {
   render() {
     return (
       <form action="">
+        <select
+          name="todo-type"
+          id="todo-type"
+          value={this.state.selected}
+          onChange={this.handleSelectChange}
+        >
+          <option value="all">All</option>
+          <option value="complete">Complete</option>
+          <option value="incomplete">Incomplete</option>
+        </select>
         <input
           type="text"
           placeholder="Add Todo"

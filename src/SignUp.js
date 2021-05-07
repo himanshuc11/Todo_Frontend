@@ -24,7 +24,6 @@ class SignUp extends Component {
         this.setState({ logged: true });
       })
       .catch((error) => {
-        var errorCode = error.code;
         var errorMessage = error.message;
         alert(errorMessage);
       });
@@ -39,7 +38,6 @@ class SignUp extends Component {
         this.setState({ logged: true });
       })
       .catch((error) => {
-        var errorCode = error.code;
         var errorMessage = error.message;
         alert(errorMessage);
       });
@@ -54,7 +52,6 @@ class SignUp extends Component {
         this.setState({ logged: true });
       })
       .catch((error) => {
-        var errorCode = error.code;
         var errorMessage = error.message;
         alert(errorMessage);
       });
