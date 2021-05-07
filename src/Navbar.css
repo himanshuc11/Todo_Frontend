@@ -1,0 +1,27 @@
+.navbar-container {
+  background-color: #5d4954;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 10vh;
+}
+
+ul {
+  list-style-type: none;
+}
+
+.user {
+  display: flex;
+}
+
+.navbar-element {
+  text-align: center;
+  margin: 10px;
+  margin-left: 20px;
+  text-decoration: none;
+  color: rgb(226, 226, 226);
+}
+
+.active-class {
+  text-decoration: underline;
+}

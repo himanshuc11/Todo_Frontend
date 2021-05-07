@@ -1,0 +1,33 @@
+.todo-item {
+  max-width: 60vw;
+  background-color: rebeccapurple;
+  margin: auto;
+  padding: 0px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.todo-item p {
+  padding-left: 10px;
+}
+
+.todo-images {
+  display: flex;
+  justify-self: flex-end;
+  align-content: center;
+}
+
+img {
+  padding: 10px;
+}
+
+@media screen and (max-width: 600px) {
+  .todo-item {
+    max-width: 80vw;
+    background-color: red;
+    margin: auto;
+    padding: 0px;
+    display: flex;
+    justify-content: space-between;
+  }
+}
