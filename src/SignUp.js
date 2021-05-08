@@ -9,7 +9,7 @@ class SignUp extends Component {
   constructor(props) {
     super(props);
 
-    this.state = { logged: false };
+    this.state = { logged: this.props.user ? true : false };
     this.gmailLogin = this.gmailLogin.bind(this);
     this.facebookLogin = this.facebookLogin.bind(this);
     this.gitHubLogin = this.gitHubLogin.bind(this);
@@ -59,6 +59,7 @@ class SignUp extends Component {
 
   render() {
     if (this.state.logged) {
+      alert("You are already logged in");
       return <Redirect exact to="/" />;
     } else {
       return (

@@ -139,7 +139,11 @@ class App extends Component {
               />
             )}
           ></Route>
-          <Route exact path="/login" render={() => <SignUp />}></Route>
+          <Route
+            exact
+            path="/login"
+            render={() => <SignUp user={this.state.user} />}
+          ></Route>
         </Switch>
         <Footer />
       </div>
